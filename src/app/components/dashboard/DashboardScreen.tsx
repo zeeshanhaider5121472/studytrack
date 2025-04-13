@@ -7,8 +7,8 @@ interface DashboardScreenProps {
   data: Student[];
 }
 const DashboardScreen: React.FC<DashboardScreenProps> = ({ data }) => {
-  var name: string = "Alice Smith";
-  var rainbow: string[] = [
+  const name: string = "Alice Smith";
+  const rainbow: string[] = [
     "#A333FF",
     "#1D5FC1",
     "#0F945D",
