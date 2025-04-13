@@ -11,9 +11,9 @@ const HomeScreen = ({}) => {
       <Image
         src="/hp1.png"
         alt={"main image"}
-        height={100}
-        width={500}
-        className="my-auto"
+        height={500}
+        width={400}
+        className="my-auto w-auto h-auto"
         priority
       />
       <MainText />

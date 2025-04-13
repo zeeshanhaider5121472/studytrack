@@ -1,7 +1,7 @@
 import { getallstudents } from "../../../api";
 import DashboardScreen from "../components/dashboard/DashboardScreen";
 
-export default async function Dashboard() {
+export default async function DashboardPage({}) {
   const data = await getallstudents();
   // console.log(data[1].classes[0].attendance[0].date);
   return (

@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { Student } from "../../../../types/dashboardtypes";
 
 interface CardProps {
@@ -9,6 +10,8 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ data, index, color, onClick }) => {
+  const router = useRouter();
+
   //
   //
   // Function to lighten a color (moved inside component for better encapsulation)
@@ -32,7 +35,17 @@ const Card: React.FC<CardProps> = ({ data, index, color, onClick }) => {
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
   };
   //
+
+  const handleNavigateWithData = () => {
+    // 1. Serialize the array to a JSON string
+    const serializedData = JSON.stringify(data.classes[index]);
+    // 2. Encode the string to make it URL-safe
+    const encodedData = encodeURIComponent(serializedData);
+    // 3. Navigate programmatically, appending the encoded data as a query parameter
+    router.push(`/analysispage?items=${encodedData}`);
+  };
   //
+
   const lightcolor = lightenColor(color, 0.85);
   const cardHeight = 212;
   const marginTop = index === 0 ? 0 : -cardHeight * 0.6;
@@ -71,10 +84,11 @@ const Card: React.FC<CardProps> = ({ data, index, color, onClick }) => {
           }} // Dynamic width based on percentage
         />
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center text-center">
         <button
           type="button"
-          className="text-black border-1 border-black hover:bg-black hover:text-white font-medium rounded-xl text-lg px-auto py-auto max-w-lg w-full h-10"
+          onClick={handleNavigateWithData}
+          className="text-black border-1 border-black hover:bg-black hover:text-white font-medium rounded-xl text-lg py-1 max-w-lg w-full h-10"
         >
           Track Report
         </button>
