@@ -30,9 +30,9 @@ export default function AnalysisPage() {
 
   return (
     <div>
-      {/* <h1 className="text-2xl font-bold mb-6">
+      <h1 className="text-2xl font-bold mb-6">
         Analysis of {receivedItems?.className}
-      </h1> */}
+      </h1>
       <ReportCard />
     </div>
   );
