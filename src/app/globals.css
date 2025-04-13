@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -23,4 +23,64 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* 1. Import Montserrat from Google Fonts (place this at the very top) */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/* 2. Import Tailwind */
+@import "tailwindcss";
+
+/* 3. Define root variables for light mode (default) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Define Montserrat as the primary sans-serif font */
+  --font-sans: "Montserrat", sans-serif; /* Added this */
+}
+
+/* --- Removed the non-standard '@theme inline' block --- */
+/* The '@theme inline' directive is not standard CSS.
+   If it's specific to a framework you're using (like maybe Next.js specific theme setup),
+   you might need to adjust it there. For standard CSS/Tailwind,
+   defining the font in :root or body (or tailwind.config.js) is preferred. */
+/*
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans); // This was overriding with Geist
+  --font-mono: var(--font-geist-mono);
+}
+*/
+
+/* 4. Define root variables for dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* 5. Apply base styles to the body */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* Apply the Montserrat font variable defined in :root */
+  font-family: var(--font-sans); /* Changed this line */
+}
+
+/* Optional: If you want to define a mono font too */
+/*
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-mono: 'Your Mono Font', monospace; // Add your preferred mono font here
+}
+*/
+
+/* Make sure your HTML lang attribute is set for accessibility */
+html {
+  /* Smooth scrolling is a nice touch */
+  scroll-behavior: smooth;
 }
