@@ -43,7 +43,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
     // Added a 'printable-area' class to potentially target with CSS for print styles if needed
     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-10 px-4 printable-area">
       {/* Card container using div and Tailwind classes */}
-      <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg border border-gray-200/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.01] backdrop-blur-md bg-white/80 overflow-hidden">
+      <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg border border-gray-200/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.01] backdrop-blur-md overflow-hidden">
         {/* Card Header section */}
         <div className="p-6 border-b border-gray-200">
           {/* Card Title */}
